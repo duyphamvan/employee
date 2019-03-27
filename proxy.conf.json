@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+    "target": "https://laravel-demo-login.herokuapp.com",
+    "secure": false,
+    "changeOrigin": true
+    }
+}

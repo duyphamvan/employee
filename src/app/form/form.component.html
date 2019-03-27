@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <form #employeeForm="ngForm" (ngSubmit)="createEmployee()">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Name</label>
+          <input [(ngModel)]="employee.name" type="text" class="form-control" name="name" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input [(ngModel)]="employee.email" type="email" class="form-control" name="email"
+            aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input [(ngModel)]="employee.password" type="password" class="form-control" name="password"
+            placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">ADD NEW</button>
+      </form>
+    </div>
+  </div>
+</div>

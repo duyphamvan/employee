@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4 offset-sm-4">
+        <div *ngIf="employee">
+            <div class="card text-center" style="width: 24rem;">
+                <div class="card-body content">
+                  <h5 class="card-title">Name Employee: {{employee['user'].name}}</h5>
+                  <p class="card-text">Email Employee: {{employee['user'].email}}</p>
+                  <a class="btn btn-info" [routerLink]="[ '/home']">Go Home</a>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row mt-3">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-light text-center">
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Show</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of employessDetail; index as i">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.email}}</td>
+                        <td><a class="btn btn-info" [routerLink]="[ '/show', item.id]">SHOW</a></td>
+                       <td><a class="btn btn-success" [routerLink]="[ '/form', item.id ]">EDIT</a></td>
+                       <td><a (click) = "delete(i)" class="btn btn-primary">REMOVE</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <td><a  [routerLink]="[ '/form']" class="btn btn-info">ADD</a></td>
+    </div>
+</div>
