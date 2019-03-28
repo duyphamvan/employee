@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../Employee';
 import { EmployeeserviceService } from '../employeeservice.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -17,9 +17,11 @@ export class FormComponent implements OnInit {
     password: null
   }
 
-  //khai bao 1 mang employee moi de chinh sua
+  //khai bao 1 mang employee oi de chinh sua
   employeeEdit: Employee[];
-  constructor(private employeeService: EmployeeserviceService, private activatedRouter: ActivatedRoute) {
+  constructor(private employeeService: EmployeeserviceService,
+     private activatedRouter: ActivatedRoute,
+     private route: Router ) {
     this.editEmployee();
   }
 
@@ -46,6 +48,7 @@ export class FormComponent implements OnInit {
         this.employee = this.employeeEdit.find((m) => {
           return m.id == this.id;
         });
+       
         // ham find thuc hien xong tra ve employee can edit
       });
     } else {
@@ -56,9 +59,11 @@ export class FormComponent implements OnInit {
     //neu la edit employee thi goi ham edit ben service
     if (this.editting) {
       this.employeeService.edit(this.employee).subscribe(data => { });
+      this.route.navigate(['../home']);
     } else {
     //neu la tao moi thi goi ham save ben service
       this.employeeService.save(this.employee).subscribe(data => { });
+      this.route.navigate(['../home']);
     }
   }
 }
